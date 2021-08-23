@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Siykt的博客</title>
+        <link>http://siykt.github.io/</link>
+        <description>Siykt的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Mon, 23 Aug 2021 16:44:45 &#43;0800</lastBuildDate>
+            <atom:link href="http://siykt.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>First post</title>
+    <link>http://siykt.github.io/posts/first_post/</link>
+    <pubDate>Mon, 23 Aug 2021 16:44:45 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://siykt.github.io/posts/first_post/</guid>
+    <description><![CDATA[使用HUGE ]]></description>
+</item></channel>
+</rss>
