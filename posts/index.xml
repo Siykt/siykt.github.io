@@ -3,7 +3,21 @@
         <title>All Posts - Siykt的博客</title>
         <link>http://siykt.github.io/posts/</link>
         <description>All Posts | Siykt的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Tue, 24 Aug 2021 14:32:15 &#43;0800</lastBuildDate><atom:link href="http://siykt.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Tue, 24 Aug 2021 18:43:29 &#43;0800</lastBuildDate><atom:link href="http://siykt.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>作用域</title>
+    <link>http://siykt.github.io/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
+    <pubDate>Tue, 24 Aug 2021 18:43:29 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://siykt.github.io/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
+    <description><![CDATA[JavaScript 中的作用域 JavaScript 中有一个被称为作用域(Scope)的特性, 指当前的执行上下文中定义变量的区域. 作用域也可以根据代码层次分层, 以便子作用域可以访]]></description>
+</item><item>
+    <title>垃圾回收</title>
+    <link>http://siykt.github.io/posts/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+    <pubDate>Tue, 24 Aug 2021 15:30:26 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://siykt.github.io/posts/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+    <description><![CDATA[浅谈 JavaScript 中的垃圾回收 作为目前最流行的 JavaScript 引擎, V8 引擎从出现的那一刻起便广泛受到人们的关注, 我们知道, JavaScript 可以高效地运行在浏览器和 Nodejs 这两大宿主环境中]]></description>
+</item><item>
     <title>防抖与节流</title>
     <link>http://siykt.github.io/posts/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</link>
     <pubDate>Tue, 24 Aug 2021 14:32:15 &#43;0800</pubDate>
