@@ -3,7 +3,14 @@
         <title>知识体系 - Tag - Siykt的博客</title>
         <link>http://siykt.github.io/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</link>
         <description>知识体系 - Tag - Siykt的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Tue, 24 Aug 2021 18:43:29 &#43;0800</lastBuildDate><atom:link href="http://siykt.github.io/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Mon, 06 Sep 2021 10:04:15 &#43;0800</lastBuildDate><atom:link href="http://siykt.github.io/tags/%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>3D可视化的技术选型参考与建议</title>
+    <link>http://siykt.github.io/posts/3d%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%8F%82%E8%80%83%E4%B8%8E%E5%BB%BA%E8%AE%AE/</link>
+    <pubDate>Mon, 06 Sep 2021 10:04:15 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://siykt.github.io/posts/3d%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%8F%82%E8%80%83%E4%B8%8E%E5%BB%BA%E8%AE%AE/</guid>
+    <description><![CDATA[3D 可视化的技术选型参考与建议 3D 可视化技术简介 3D 可视化技术是一种新的管理、分析和交互数据的方式，它能实现实时反射、实时折射、动态阴影等高品质，]]></description>
+</item><item>
     <title>作用域</title>
     <link>http://siykt.github.io/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
     <pubDate>Tue, 24 Aug 2021 18:43:29 &#43;0800</pubDate>
