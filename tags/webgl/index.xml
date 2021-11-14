@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>WebGL - Tag - Siykt的博客</title>
-        <link>http://siykt.github.io/tags/webgl/</link>
+        <link>https://blog.siykt.me/tags/webgl/</link>
         <description>WebGL - Tag - Siykt的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Mon, 06 Sep 2021 10:04:15 &#43;0800</lastBuildDate><atom:link href="http://siykt.github.io/tags/webgl/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Mon, 06 Sep 2021 10:04:15 &#43;0800</lastBuildDate><atom:link href="https://blog.siykt.me/tags/webgl/" rel="self" type="application/rss+xml" /><item>
     <title>3D可视化的技术选型参考与建议</title>
-    <link>http://siykt.github.io/posts/3d%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%8F%82%E8%80%83%E4%B8%8E%E5%BB%BA%E8%AE%AE/</link>
+    <link>https://blog.siykt.me/posts/3d%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%8F%82%E8%80%83%E4%B8%8E%E5%BB%BA%E8%AE%AE/</link>
     <pubDate>Mon, 06 Sep 2021 10:04:15 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>http://siykt.github.io/posts/3d%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%8F%82%E8%80%83%E4%B8%8E%E5%BB%BA%E8%AE%AE/</guid>
+    <guid>https://blog.siykt.me/posts/3d%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%8F%82%E8%80%83%E4%B8%8E%E5%BB%BA%E8%AE%AE/</guid>
     <description><![CDATA[3D 可视化的技术选型参考与建议 3D 可视化技术简介 3D 可视化技术是一种新的管理、分析和交互数据的方式，它能实现实时反射、实时折射、动态阴影等高品质，]]></description>
 </item></channel>
 </rss>
