@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Linked List - Siykt的博客</title><meta name="Description" content="Linked List"><meta property="og:title" content="Linked List" />
+<meta property="og:description" content="Linked List" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.siykt.me/posts/linked-list/" />
+<meta property="article:published_time" content="2022-05-11T23:08:39+08:00" />
+<meta property="article:modified_time" content="2022-05-11T23:08:39+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linked List"/>
+<meta name="twitter:description" content="Linked List"/>
+<meta name="application-name" content="Siykt的博客">
+<meta name="apple-mobile-web-app-title" content="Siykt的博客"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.siykt.me/posts/linked-list/" /><link rel="prev" href="https://blog.siykt.me/posts/webcomponent%E4%B8%8Eshadowdom/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Linked List",
+        "inLanguage": "zh",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/blog.siykt.me\/posts\/linked-list\/"
+        },"genre": "posts","keywords": "algorithms","wordcount":  4120 ,
+        "url": "https:\/\/blog.siykt.me\/posts\/linked-list\/","datePublished": "2022-05-11T23:08:39+08:00","dateModified": "2022-05-11T23:08:39+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Siykt"},"author": {
+                "@type": "Person",
+                "name": "Siykt"
+            },"description": "Linked List"
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Siykt的博客">Siykt的博客</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Siykt的博客">Siykt的博客</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Linked List</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Siykt</a></span>&nbsp;<span class="post-category">included in <a href="/categories/javascript/"><i class="far fa-folder fa-fw"></i>JavaScript</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-11">2022-05-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;4120 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#链表的细分种类">链表的细分种类</a>
+      <ul>
+        <li><a href="#单向链表">单向链表</a></li>
+        <li><a href="#双向链表">双向链表</a></li>
+      </ul>
+    </li>
+    <li><a href="#实例">实例</a>
+      <ul>
+        <li><a href="#合并有序链表">合并有序链表</a></li>
+        <li><a href="#有序链表的去重算法">有序链表的去重算法</a></li>
+        <li><a href="#两个链表的两数相加">两个链表的两数相加</a></li>
+        <li><a href="#删除链表的倒数第-n-个结点">删除链表的倒数第 N 个结点</a></li>
+        <li><a href="#反转链表">反转链表</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="linked-list">Linked List</h1>
+<h1 id="链表">链表</h1>
+<p>在计算机科学中, 一个 链表 是数据元素的<strong>线性</strong>集合</p>
+<p>在最简单的形式下, 每个节点由数据两个部分组成, 一个是用于存储数据的 <strong>&lt;元素域/值域&gt;</strong>, 一个是用于存储指针信息的 <strong>&lt;链接域/指针域&gt;</strong></p>
+<p>其元素的线性顺序是由每个元素的链接域中指针信息所组成:</p>
+<p><code>链表集合: { {元素域, 链接域}, {元素域, 链接域}, {元素域, 链接域} }</code></p>
+<p>在使用内存空间的表现上, 因为其节点存在指针信息的链接域, 所以链表不需要连续的内存地址:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">访问地址</th>
+<th style="text-align:center">元素域</th>
+<th style="text-align:center">链接域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">100</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">130</td>
+</tr>
+<tr>
+<td style="text-align:center">130</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">180</td>
+</tr>
+<tr>
+<td style="text-align:center">180</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<p>由于每个元素必须存储指向前后元素位置的指针, 会消耗相对更多的储存空间</p>
+<p>因为链表的存储空间不连续, 你无法根据一个索引算出对应元素的地址, 所以不能随机访问</p>
+<p>链表节点的实现参考:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span> <span class="err">=</span> <span class="na">any</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="c1">// -- 元素域 --
+</span><span class="c1"></span>  <span class="cm">/** 保存的数据 */</span>
+  <span class="nx">elem</span>: <span class="kt">Data</span><span class="p">;</span>
+
+  <span class="c1">// -- 链接域 --
+</span><span class="c1"></span>  <span class="cm">/** 指向下一个元素 */</span>
+  <span class="nx">next?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;;</span>
+  <span class="cm">/** 指向上一个元素 */</span>
+  <span class="nx">pre?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;;</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span> <span class="err">=</span> <span class="na">any</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">elem</span>: <span class="kt">Data</span><span class="p">,</span> <span class="kr">public</span> <span class="nx">next?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;,</span> <span class="kr">public</span> <span class="nx">pre?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;)</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div><h2 id="链表的细分种类">链表的细分种类</h2>
+<p>链表有很多种不同的类型: 单向链表, 双向链表以及循环链表</p>
+<h3 id="单向链表">单向链表</h3>
+<p>链表中最简单的一种是单向链表 (又名单链表、线性链表) , 其特点是链表的链接方向是单向的而最后一个节点则指向一个空值. 对链表的访问要通过从头部开始, 依序往下读取</p>
+<p>实现参考:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">SingleLinkedList</span><span class="p">&lt;</span><span class="nt">Data</span> <span class="err">=</span> <span class="na">any</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="nx">head?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;;</span>
+  <span class="nx">tail?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;;</span>
+
+  <span class="kr">constructor</span><span class="p">(...</span><span class="nx">elements</span>: <span class="kt">Data</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elements</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 初始化时调用 shift 或 push 都可以实现
+</span><span class="c1"></span>      <span class="nx">elements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="cm">/** 获取链表的长度, 此属性将会迭代链表请谨慎使用 */</span>
+  <span class="kr">get</span> <span class="nx">length() {</span>
+    <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// 根据节点是否存在判断链表的长度
+</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 判断链表是否为空
+</span><span class="cm">   */</span>
+  <span class="nx">isEmpty() {</span>
+    <span class="k">return</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 添加元素至链表的头部 {1} -&gt; [{1}, {0}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   */</span>
+  <span class="nx">add</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="nx">node</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 添加元素至链表的尾部 {1} -&gt; [{0}, {1}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   */</span>
+  <span class="nx">append</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="c1">// 如果链表为空, 添加至头部
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 添加元素至链表的指定位置 {2},1 -&gt; [{0}, {2}, {1}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   * @param pos 元素坐标
+</span><span class="cm">   */</span>
+  <span class="nx">inset</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">,</span> <span class="nx">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 若指定位置为第一个元素之前, 则执行头部插入
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 若指定位置为第一个元素之前, 则执行尾部插入
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">pre</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nx">node</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+      <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 根据位置查询元素
+</span><span class="cm">   * @param pos 元素坐标
+</span><span class="cm">   */</span>
+  <span class="nx">search</span><span class="p">(</span><span class="nx">pos</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="c1">// 如果输入的数小于等于 0, 返回 head
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+      <span class="c1">// 遍历节点获取位置
+</span><span class="c1"></span>      <span class="k">while</span> <span class="p">(</span><span class="nx">pos</span><span class="o">--</span><span class="p">)</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 抛出索引超出错误
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">`[SingleLinkedList] 链表索引超出: </span><span class="si">${</span><span class="nx">pos</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 根据位置删除元素
+</span><span class="cm">   * @param pos 坐标
+</span><span class="cm">   */</span>
+  <span class="nx">remove</span><span class="p">(</span><span class="nx">pos</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 获取要删除的节点的上一个节点以便更新节点坐标
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">pre</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 当要删除的节点为尾节点时更新尾节点
+</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">node</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// 将上一个节点的next索引更新为删除节点的next索引
+</span><span class="c1"></span>      <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 遍历链表
+</span><span class="cm">   * @param callbackfn 回调函数
+</span><span class="cm">   */</span>
+  <span class="nx">map</span><span class="p">&lt;</span><span class="nt">Result</span><span class="p">&gt;(</span><span class="nx">callbackfn</span>: <span class="kt">LinkedListTraversalCallback</span><span class="p">&lt;</span><span class="nt">Data</span><span class="err">,</span> <span class="na">Result</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">Result</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">result</span>: <span class="kt">Result</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="o">++</span><span class="p">,</span> <span class="nx">cur</span><span class="p">));</span>
+      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="双向链表">双向链表</h3>
+<p>双向链表与单向链表的差异就在于其链接域保存的指针有两个, 一个指向上一个节点(前驱), 一个指向下一个节点(后继), 所以, 从双向链表中的任意一个结点开始, 都可以很方便地访问它的前驱结点和后继结点</p>
+<p>实现参考:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kr">class</span> <span class="nx">DoubleLinkedList</span><span class="p">&lt;</span><span class="nt">Data</span> <span class="err">=</span> <span class="na">any</span><span class="p">&gt;</span> <span class="p">{</span>
+  <span class="nx">head?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;;</span>
+  <span class="nx">tail?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;;</span>
+
+  <span class="kr">constructor</span><span class="p">(...</span><span class="nx">elements</span>: <span class="kt">Data</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elements</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 初始化时调用 shift 或 push 都可以实现
+</span><span class="c1"></span>      <span class="nx">elements</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">e</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="cm">/** 获取链表的长度, 此属性将会迭代链表请谨慎使用 */</span>
+  <span class="kr">get</span> <span class="nx">length() {</span>
+    <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// 根据节点是否存在判断链表的长度
+</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 判断链表是否为空
+</span><span class="cm">   */</span>
+  <span class="nx">isEmpty() {</span>
+    <span class="k">return</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 添加元素至链表的头部 {1} -&gt; [{1}, {0}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   */</span>
+  <span class="nx">add</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="c1">// 设置新节点的后继为原head节点
+</span><span class="c1"></span>    <span class="nx">node</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 设置原head节点的前驱为新节点
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">pre</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 更新head节点
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="c1">// 如果尾节点不存在则设置尾部节点
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 添加元素至链表的尾部 {1} -&gt; [{0}, {1}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   */</span>
+  <span class="nx">append</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="c1">// 如果链表为空, 添加至头部
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">())</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 设置原tail节点的后继为新节点
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+        <span class="c1">// 设置新节点的前驱为原tail节点
+</span><span class="c1"></span>        <span class="nx">node</span><span class="p">.</span><span class="nx">pre</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// 更新tail节点
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">node</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 添加元素至链表的指定位置 {2},1 -&gt; [{0}, {2}, {1}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   * @param pos 元素坐标
+</span><span class="cm">   */</span>
+  <span class="nx">inset</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">,</span> <span class="nx">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 若指定位置为第一个元素之前, 则执行头部插入
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 若指定位置为第一个元素之前, 则执行尾部插入
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">oldNode</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">pos</span><span class="p">);</span>
+      <span class="c1">// 查找到它的前一个节点进行操作
+</span><span class="c1"></span>      <span class="kr">const</span> <span class="p">{</span> <span class="nx">pre</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">oldNode</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">pre</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 更新前一个节点的后继为新节点
+</span><span class="c1"></span>        <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+        <span class="c1">// 更新新节点的前驱为前一个节点
+</span><span class="c1"></span>        <span class="nx">newNode</span><span class="p">.</span><span class="nx">pre</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">oldNode</span><span class="p">;</span>
+      <span class="nx">oldNode</span><span class="p">.</span><span class="nx">pre</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 从右侧(尾部)添加元素至链表的指定位置 {2},0 -&gt; [{0}, {1}, {2}]
+</span><span class="cm">   * @param elem 元素
+</span><span class="cm">   * @param pos 元素坐标
+</span><span class="cm">   */</span>
+  <span class="nx">insetRight</span><span class="p">(</span><span class="nx">elem</span>: <span class="kt">Data</span><span class="p">,</span> <span class="nx">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 若指定位置为第一个元素之前, 则执行尾部插入
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 若指定位置为最后一个元素之后, 则执行头部插入
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">elem</span><span class="p">);</span>
+      <span class="kr">const</span> <span class="nx">oldNode</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">searchRight</span><span class="p">(</span><span class="nx">pos</span><span class="p">);</span>
+      <span class="c1">// 查找到它的前一个节点进行操作
+</span><span class="c1"></span>      <span class="kr">const</span> <span class="p">{</span> <span class="nx">pre</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">oldNode</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">pre</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 更新前一个节点的后继为新节点
+</span><span class="c1"></span>        <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+        <span class="c1">// 更新新节点的前驱为前一个节点
+</span><span class="c1"></span>        <span class="nx">newNode</span><span class="p">.</span><span class="nx">pre</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">newNode</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">oldNode</span><span class="p">;</span>
+      <span class="nx">oldNode</span><span class="p">.</span><span class="nx">pre</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 根据位置查询元素
+</span><span class="cm">   * @param pos 元素坐标
+</span><span class="cm">   */</span>
+  <span class="nx">search</span><span class="p">(</span><span class="nx">pos</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="c1">// 如果输入的数小于等于 0, 返回 head
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+      <span class="c1">// 遍历节点获取位置
+</span><span class="c1"></span>      <span class="k">while</span> <span class="p">(</span><span class="nx">pos</span><span class="o">--</span><span class="p">)</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 抛出索引超出错误
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">`[DoubleLinkedList] 链表索引超出: </span><span class="si">${</span><span class="nx">pos</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 根据位置从右侧(尾部)查询元素
+</span><span class="cm">   * @param pos 元素坐标
+</span><span class="cm">   */</span>
+  <span class="nx">searchRight</span><span class="p">(</span><span class="nx">pos</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="c1">// 如果输入的数小于等于 0, 返回 tail
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">;</span>
+      <span class="c1">// 遍历节点获取位置
+</span><span class="c1"></span>      <span class="k">while</span> <span class="p">(</span><span class="nx">pos</span><span class="o">--</span><span class="p">)</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">result</span><span class="o">?</span><span class="p">.</span><span class="nx">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 抛出索引超出错误
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="sb">`[DoubleLinkedList] 链表索引超出: </span><span class="si">${</span><span class="nx">pos</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 根据位置删除元素
+</span><span class="cm">   * @param pos 坐标
+</span><span class="cm">   */</span>
+  <span class="nx">remove</span><span class="p">(</span><span class="nx">pos</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 获取要删除的节点的上一个节点以便更新节点坐标
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">pre</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 当要删除的节点为尾节点时更新尾节点
+</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">node</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// 将上一个节点的next索引更新为删除节点的next索引
+</span><span class="c1"></span>      <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 根据位置从右侧(尾部)删除元素
+</span><span class="cm">   * @param pos 坐标
+</span><span class="cm">   */</span>
+  <span class="nx">removeRight</span><span class="p">(</span><span class="nx">pos</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 获取要删除的节点的上一个节点以便更新节点坐标
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">pre</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">pos</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kr">const</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 当要删除的节点为尾节点时更新尾节点
+</span><span class="c1"></span>      <span class="k">if</span> <span class="p">(</span><span class="nx">node</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">tail</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="c1">// 将上一个节点的next索引更新为删除节点的next索引
+</span><span class="c1"></span>      <span class="nx">pre</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 遍历链表
+</span><span class="cm">   * @param callbackfn 回调函数
+</span><span class="cm">   */</span>
+  <span class="nx">map</span><span class="p">&lt;</span><span class="nt">Result</span><span class="p">&gt;(</span><span class="nx">callbackfn</span>: <span class="kt">LinkedListTraversalCallback</span><span class="p">&lt;</span><span class="nt">Data</span><span class="err">,</span> <span class="na">Result</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">Result</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">result</span>: <span class="kt">Result</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="o">++</span><span class="p">,</span> <span class="nx">cur</span><span class="p">));</span>
+      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 从右侧(尾部)遍历链表
+</span><span class="cm">   * @param callbackfn 回调函数
+</span><span class="cm">   */</span>
+  <span class="nx">mapRight</span><span class="p">&lt;</span><span class="nt">Result</span><span class="p">&gt;(</span><span class="nx">callbackfn</span>: <span class="kt">LinkedListTraversalCallback</span><span class="p">&lt;</span><span class="nt">Data</span><span class="err">,</span> <span class="na">Result</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">Result</span><span class="p">[]</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">result</span>: <span class="kt">Result</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="o">++</span><span class="p">,</span> <span class="nx">cur</span><span class="p">));</span>
+      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * 双向迭代
+</span><span class="cm">   * @param callbackfn 回调函数, 返回false停止循环
+</span><span class="cm">   */</span>
+  <span class="nx">travelBidirectional</span><span class="p">(</span>
+    <span class="nx">callbackfn</span><span class="o">:</span> <span class="p">(</span><span class="nx">startNode</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;,</span> <span class="nx">endNode</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">Data</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">count</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kt">any</span>
+  <span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">start</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">end</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tail</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">start</span> <span class="o">!==</span> <span class="nx">end</span> <span class="o">&amp;&amp;</span> <span class="nx">start</span> <span class="o">&amp;&amp;</span> <span class="nx">end</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">callbackfn</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">count</span><span class="o">++</span><span class="p">)</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">start</span> <span class="o">=</span> <span class="nx">start</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+      <span class="nx">end</span> <span class="o">=</span> <span class="nx">end</span><span class="o">?</span><span class="p">.</span><span class="nx">pre</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">start</span> <span class="o">&amp;&amp;</span> <span class="nx">start</span><span class="p">.</span><span class="nx">next</span> <span class="o">===</span> <span class="nx">end</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">callbackfn</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">count</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">end</span> <span class="o">&amp;&amp;</span> <span class="nx">end</span><span class="p">.</span><span class="nx">pre</span> <span class="o">===</span> <span class="nx">start</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">callbackfn</span><span class="p">(</span><span class="nx">end</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">,</span> <span class="nx">count</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">s</span><span class="p">;</span>
+</code></pre></div><h2 id="实例">实例</h2>
+<blockquote>
+<p>没有实例的数据结构都是空洞且乏味的</p>
+</blockquote>
+<p>链表使用在对于不需要搜索但在变动频繁且无法预知数量上限的数据, 比如内存池、进程管理等场景.</p>
+<h3 id="合并有序链表">合并有序链表</h3>
+<p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回, 新链表是通过拼接给定的两个链表的所有节点组成的</p>
+<p>详细参见: <a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/" target="_blank" rel="noopener noreffer">21. 合并两个有序链表 - 力扣（LeetCode）</a></p>
+<p>算法实现:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">mergeTwoSortedLists</span><span class="p">(</span>
+  <span class="nx">list1?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;,</span>
+  <span class="nx">list2?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span>
+<span class="p">)</span><span class="o">:</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="p">{</span>
+  <span class="c1">// 创建虚拟节点保存head指针
+</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="nx">dummy</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">list1</span> <span class="o">&amp;&amp;</span> <span class="nx">list2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 循环比较 list1 与 list2 的大小
+</span><span class="c1"></span>    <span class="c1">// 并将小的一方挂载至cur.next上以保证“升序”的返回结果
+</span><span class="c1"></span>    <span class="c1">// ? 如果需要降序结果只需调整判断的逻辑为小于
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">list1</span><span class="p">.</span><span class="nx">elem</span> <span class="o">&gt;</span> <span class="nx">list2</span><span class="p">.</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">list2</span><span class="p">;</span>
+      <span class="nx">list2</span> <span class="o">=</span> <span class="nx">list2</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">list1</span><span class="p">;</span>
+      <span class="nx">list1</span> <span class="o">=</span> <span class="nx">list1</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 更新当前节点(cur)为后继节点
+</span><span class="c1"></span>    <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// 到此只存在单个有效的链了, 直接将其挂载至当前节点的后继
+</span><span class="c1"></span>  <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">list1</span> <span class="o">||</span> <span class="nx">list2</span><span class="p">;</span>
+  <span class="c1">// 返回虚拟head节点中保存的实际head节点
+</span><span class="c1"></span>  <span class="k">return</span> <span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="有序链表的去重算法">有序链表的去重算法</h3>
+<p>给定一个已排序的链表的头 head, 删除所有重复的元素使每个元素只出现一次, 返回已排序的链表</p>
+<p>详细参见: <a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/" target="_blank" rel="noopener noreffer">83. 删除排序链表中的重复元素 - 力扣（LeetCode）</a></p>
+<p>算法实现:</p>
+<blockquote>
+<p>方法一</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">deleteDuplicates</span><span class="p">(</span><span class="nx">head?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">head</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// 创建一个移动的指针用于更新链表
+</span><span class="c1"></span>  <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="nx">head</span><span class="p">;</span>
+  <span class="c1">// TODO 当值域相等时抛弃该节点, 否则更新当前节点为后继节点
+</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">elem</span> <span class="o">===</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 抛弃节点 cur.next
+</span><span class="c1"></span>      <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// 更新当前节点为后继节点
+</span><span class="c1"></span>      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><blockquote>
+<p>方法二</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">deleteDuplicates2</span><span class="p">(</span><span class="nx">head?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">head</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// 创建虚拟节点保存head指针
+</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">MIN_VALUE</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="nx">dummy</span><span class="p">;</span>
+  <span class="c1">// TODO 当值域不相等时添加该节点并更新节点指针为后继节点, 否则更新当前节点为后继节点
+</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cur</span><span class="p">.</span><span class="nx">elem</span> <span class="o">!==</span> <span class="nx">head</span><span class="p">.</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 添加该节点并更新节点指针为后继节点
+</span><span class="c1"></span>      <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">head</span><span class="p">;</span>
+      <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// 更新当前节点为后继节点
+</span><span class="c1"></span>    <span class="nx">head</span> <span class="o">=</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// 移除多余节点
+</span><span class="c1"></span>  <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><blockquote>
+<p>方法三</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">deleteDuplicates3</span><span class="p">(</span><span class="nx">head?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">head</span> <span class="o">||</span> <span class="o">!</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">head</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// TODO 递归更新后继节点, 当值域相等时抛弃该节点
+</span><span class="c1"></span>  <span class="nx">head</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">deleteDuplicates3</span><span class="p">(</span><span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">head</span><span class="p">.</span><span class="nx">elem</span> <span class="o">===</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="o">?</span><span class="p">.</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 抛弃节点
+</span><span class="c1"></span>    <span class="nx">head</span> <span class="o">=</span> <span class="nx">head</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="两个链表的两数相加">两个链表的两数相加</h3>
+<p>合并两个链表将其值域相加并返回为一个新的链表</p>
+<p>详细参见: <a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener noreffer">2. 两数相加 - 力扣（LeetCode）</a>)</p>
+<p>算法实现:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">export</span> <span class="kd">function</span> <span class="nx">addTwoNumbers</span><span class="p">(</span><span class="nx">l1?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;,</span> <span class="nx">l2?</span>: <span class="kt">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;)</span><span class="o">:</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span> <span class="p">{</span>
+  <span class="c1">// 创建虚拟节点保存head指针
+</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="nx">dummy</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">nextNum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="c1">// 循环相加两个链表的值, 并用 0 补位
+</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">l1</span> <span class="o">||</span> <span class="nx">l2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 如果链表不相同时, 使用 0 补位 (任意一个实数 + 0等于其本身)
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">v1</span> <span class="o">=</span> <span class="nx">l1</span> <span class="o">?</span> <span class="nx">l1.elem</span> : <span class="kt">0</span><span class="p">;</span>
+    <span class="kr">const</span> <span class="nx">v2</span> <span class="o">=</span> <span class="nx">l2</span> <span class="o">?</span> <span class="nx">l2.elem</span> : <span class="kt">0</span><span class="p">;</span>
+    <span class="c1">// 两数相加并且添加可能存在的进位
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">addNum</span> <span class="o">=</span> <span class="nx">v1</span> <span class="o">+</span> <span class="nx">v2</span> <span class="o">+</span> <span class="nx">nextNum</span><span class="p">;</span>
+    <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">addNum</span> <span class="o">%</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="c1">// 计算进位
+</span><span class="c1"></span>    <span class="nx">nextNum</span> <span class="o">=</span> <span class="nx">addNum</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="o">?</span> <span class="nx">1</span> : <span class="kt">0</span><span class="p">;</span>
+    <span class="c1">// 更新节点
+</span><span class="c1"></span>    <span class="nx">l1</span> <span class="o">=</span> <span class="nx">l1</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="nx">l2</span> <span class="o">=</span> <span class="nx">l2</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="nx">cur</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">nextNum</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="nx">nextNum</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="删除链表的倒数第-n-个结点">删除链表的倒数第 N 个结点</h3>
+<p>删除链表的倒数第 N 个结点并且返回链表的头结点</p>
+<p>详细参见: <a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener noreffer">19. 删除链表的倒数第 N 个结点 - 力扣（LeetCode）</a>)</p>
+<p>算法实现:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">type</span> <span class="nx">ListNode</span> <span class="o">=</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">removeNthNodeFromEndOfList</span><span class="p">(</span><span class="nx">head</span>: <span class="kt">ListNode</span><span class="p">,</span> <span class="nx">n</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="nx">ListNode</span> <span class="p">{</span>
+  <span class="c1">// 倒数第 n 个节点也就是正数第 len - n 个节点
+</span><span class="c1"></span>  <span class="c1">// 而删除此节点需要获取其前一个节点的位置
+</span><span class="c1"></span>  <span class="c1">// 所以我们让指针 p1 先走 n + 1 步
+</span><span class="c1"></span>  <span class="c1">// 剩下的路程就是 len - n - 1
+</span><span class="c1"></span>  <span class="c1">// 也就是倒数第n个节点的前一个节点
+</span><span class="c1"></span>
+  <span class="c1">// 创建虚拟头节点用于处理边界问题
+</span><span class="c1"></span>  <span class="kr">const</span> <span class="nx">dummy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LinkedListNode</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">head</span><span class="p">;</span>
+  <span class="c1">// 让指针p1先走 n + 1 步
+</span><span class="c1"></span>  <span class="kd">let</span> <span class="nx">p1</span>: <span class="kt">ListNode</span> <span class="o">=</span> <span class="nx">dummy</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">p1</span> <span class="o">=</span> <span class="nx">p1</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="c1">// 再让指针p2跟随p1一起走 len - n - 1 找到倒数第n个节点的
+</span><span class="c1"></span>  <span class="kd">let</span> <span class="nx">p2</span>: <span class="kt">ListNode</span> <span class="o">=</span> <span class="nx">dummy</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">p1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">p1</span> <span class="o">=</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="nx">p2</span> <span class="o">=</span> <span class="nx">p2</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">p2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">p2</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">p2</span><span class="p">.</span><span class="nx">next</span><span class="o">?</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="反转链表">反转链表</h3>
+<p>给你单链表的头节点 head, 请你反转链表, 并返回反转后的链表</p>
+<p>详细参见: <a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener noreffer">206. 反转链表 - 力扣（LeetCode）</a>)</p>
+<p>算法实现:</p>
+<div class="highlight"><pre class="chroma"><code class="language-typescript" data-lang="typescript"><span class="kr">type</span> <span class="nx">ListNode</span> <span class="o">=</span> <span class="nx">LinkedListNode</span><span class="p">&lt;</span><span class="nt">number</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">undefined</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">reverseList</span><span class="p">(</span><span class="nx">head?</span>: <span class="kt">ListNode</span><span class="p">)</span><span class="o">:</span> <span class="nx">ListNode</span> <span class="p">{</span>
+  <span class="c1">// 三指针操作节点, pre 用于保存上一个节点的信息, next用于临时保存下一个节点的信息
+</span><span class="c1"></span>  <span class="kd">let</span> <span class="nx">pre</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">cur</span> <span class="o">=</span> <span class="nx">head</span><span class="p">;</span>
+  <span class="c1">// 假设 head = [1, 2, 3, 4, 5]
+</span><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="nx">cur</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 此时 cur(当前节点) = [1, 2, 3, 4, 5], pre(上一个节点) = null, next(下一个节点) = [2, 3, 4, 5]
+</span><span class="c1"></span>    <span class="kr">const</span> <span class="nx">next</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+    <span class="c1">// 将 cur 的 下一个节点更新为 pre 就可以得倒一个 [1, null] 的链表
+</span><span class="c1"></span>    <span class="c1">// 下次迭代即为 node([2, 3, 4, 5]).next = pre([1, null]) = [2, 1, null]
+</span><span class="c1"></span>    <span class="nx">cur</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">pre</span><span class="p">;</span>
+    <span class="c1">// 再将 [1, null] 保存至 pre
+</span><span class="c1"></span>    <span class="c1">// 重复即可得 [2, 1, null], [3, 2, 1, null], [4, 3, 2, 1, null], [5, 4, 3, 2, 1, null]
+</span><span class="c1"></span>    <span class="nx">pre</span> <span class="o">=</span> <span class="nx">cur</span><span class="p">;</span>
+    <span class="c1">// 最后更新 cur 为 next (即 [2, 3, 4, 5])
+</span><span class="c1"></span>    <span class="nx">cur</span> <span class="o">=</span> <span class="nx">next</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">pre</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-05-11</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/algorithms/">algorithms</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/webcomponent%E4%B8%8Eshadowdom/" class="prev" rel="prev" title="WebComponent与ShadowDOM"><i class="fas fa-angle-left fa-fw"></i>WebComponent与ShadowDOM</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.80.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
