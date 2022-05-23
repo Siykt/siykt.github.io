@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>自我提升 - Tag - Siykt的博客</title>
-        <link>https://blog.siykt.me/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/</link>
+        <link>https://www.antpro.me/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/</link>
         <description>自我提升 - Tag - Siykt的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 21 Apr 2021 09:20:38 &#43;0800</lastBuildDate><atom:link href="https://blog.siykt.me/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 21 Apr 2021 09:20:38 &#43;0800</lastBuildDate><atom:link href="https://www.antpro.me/tags/%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87/" rel="self" type="application/rss+xml" /><item>
     <title>使用Vue简单实现贪食蛇游戏</title>
-    <link>https://blog.siykt.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</link>
+    <link>https://www.antpro.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</link>
     <pubDate>Wed, 21 Apr 2021 09:20:38 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</guid>
+    <guid>https://www.antpro.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</guid>
     <description><![CDATA[使用 Vue 简单实现贪食蛇游戏 贪食蛇是一个非常经典的游戏, 在游戏中, 玩家操控一条细长的直线(俗称蛇或虫), 它会不停前进, 玩家只能操控蛇的头部朝向(]]></description>
 </item></channel>
 </rss>

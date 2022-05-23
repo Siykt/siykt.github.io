@@ -1,70 +1,70 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>JavaScript - Category - Siykt的博客</title>
-        <link>https://blog.siykt.me/categories/javascript/</link>
+        <link>https://www.antpro.me/categories/javascript/</link>
         <description>JavaScript - Category - Siykt的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 11 May 2022 23:08:39 &#43;0800</lastBuildDate><atom:link href="https://blog.siykt.me/categories/javascript/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 11 May 2022 23:08:39 &#43;0800</lastBuildDate><atom:link href="https://www.antpro.me/categories/javascript/" rel="self" type="application/rss+xml" /><item>
     <title>Linked List</title>
-    <link>https://blog.siykt.me/posts/linked-list/</link>
+    <link>https://www.antpro.me/posts/linked-list/</link>
     <pubDate>Wed, 11 May 2022 23:08:39 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/linked-list/</guid>
+    <guid>https://www.antpro.me/posts/linked-list/</guid>
     <description><![CDATA[链表 在计算机科学中, 一个 链表 是数据元素的线性集合 在最简单的形式下, 每个节点由数据两个部分组成, 一个是用于存储数据的 &lt;元素域/值域&gt]]></description>
 </item><item>
     <title>WebComponent与ShadowDOM</title>
-    <link>https://blog.siykt.me/posts/webcomponent%E4%B8%8Eshadowdom/</link>
+    <link>https://www.antpro.me/posts/webcomponent%E4%B8%8Eshadowdom/</link>
     <pubDate>Tue, 19 Oct 2021 18:44:12 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/webcomponent%E4%B8%8Eshadowdom/</guid>
+    <guid>https://www.antpro.me/posts/webcomponent%E4%B8%8Eshadowdom/</guid>
     <description><![CDATA[WebComponent 与 ShadowDOM]]></description>
 </item><item>
     <title>作用域</title>
-    <link>https://blog.siykt.me/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
+    <link>https://www.antpro.me/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</link>
     <pubDate>Tue, 24 Aug 2021 18:43:29 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
+    <guid>https://www.antpro.me/posts/%E4%BD%9C%E7%94%A8%E5%9F%9F/</guid>
     <description><![CDATA[JavaScript 中的作用域 JavaScript 中有一个被称为作用域(Scope)的特性, 指当前的执行上下文中定义变量的区域. 作用域也可以根据代码层次分层, 以便子作用域可以访]]></description>
 </item><item>
     <title>垃圾回收</title>
-    <link>https://blog.siykt.me/posts/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+    <link>https://www.antpro.me/posts/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
     <pubDate>Tue, 24 Aug 2021 15:30:26 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+    <guid>https://www.antpro.me/posts/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
     <description><![CDATA[浅谈 JavaScript 中的垃圾回收 作为目前最流行的 JavaScript 引擎, V8 引擎从出现的那一刻起便广泛受到人们的关注, 我们知道, JavaScript 可以高效地运行在浏览器和 Nodejs 这两大宿主环境中]]></description>
 </item><item>
     <title>防抖与节流</title>
-    <link>https://blog.siykt.me/posts/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</link>
+    <link>https://www.antpro.me/posts/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</link>
     <pubDate>Tue, 24 Aug 2021 14:32:15 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</guid>
+    <guid>https://www.antpro.me/posts/%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</guid>
     <description><![CDATA[JavaScript 中的防抖与节流 防抖与节流是一种基于闭包的优化高频率执行 js 代码的一种方法, 例如处理一些如 scroll、mousemove、mouseover]]></description>
 </item><item>
     <title>柯里化</title>
-    <link>https://blog.siykt.me/posts/%E6%9F%AF%E9%87%8C%E5%8C%96/</link>
+    <link>https://www.antpro.me/posts/%E6%9F%AF%E9%87%8C%E5%8C%96/</link>
     <pubDate>Tue, 24 Aug 2021 12:40:01 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E6%9F%AF%E9%87%8C%E5%8C%96/</guid>
+    <guid>https://www.antpro.me/posts/%E6%9F%AF%E9%87%8C%E5%8C%96/</guid>
     <description><![CDATA[柯里化(Currying) 柯里化(Currying)是一种基于闭包的函数的高阶技术. 而且它不仅被用于 JavaScript, 也在其他编程语言有相同的应用. 柯里化是]]></description>
 </item><item>
     <title>词法环境</title>
-    <link>https://blog.siykt.me/posts/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/</link>
+    <link>https://www.antpro.me/posts/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/</link>
     <pubDate>Tue, 24 Aug 2021 11:36:21 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/</guid>
+    <guid>https://www.antpro.me/posts/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/</guid>
     <description><![CDATA[简介 Lexical Environments 是一种规范类型，用于根据 ECMAScript 代码的词法嵌套结构定义标识符与特定变量和函数的关联。一个词法环境由一个 Environment Records 和一个可能为空的外部词法环境的引]]></description>
 </item><item>
     <title>闭包</title>
-    <link>https://blog.siykt.me/posts/%E9%97%AD%E5%8C%85/</link>
+    <link>https://www.antpro.me/posts/%E9%97%AD%E5%8C%85/</link>
     <pubDate>Tue, 24 Aug 2021 11:27:09 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E9%97%AD%E5%8C%85/</guid>
+    <guid>https://www.antpro.me/posts/%E9%97%AD%E5%8C%85/</guid>
     <description><![CDATA[JavaScript 的闭包 一个函数和对其周围状态 (lexical environment, 词法环境) 的引用捆绑在一起 (或者说函数被引用包围) , 这样的组合就是闭包 (closure). 也就是说, 闭包让你可以在一个内层函]]></description>
 </item><item>
     <title>使用Vue简单实现贪食蛇游戏</title>
-    <link>https://blog.siykt.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</link>
+    <link>https://www.antpro.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</link>
     <pubDate>Wed, 21 Apr 2021 09:20:38 &#43;0800</pubDate>
     <author>Author</author>
-    <guid>https://blog.siykt.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</guid>
+    <guid>https://www.antpro.me/posts/%E4%BD%BF%E7%94%A8vue%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E8%B4%AA%E9%A3%9F%E8%9B%87%E6%B8%B8%E6%88%8F/</guid>
     <description><![CDATA[使用 Vue 简单实现贪食蛇游戏 贪食蛇是一个非常经典的游戏, 在游戏中, 玩家操控一条细长的直线(俗称蛇或虫), 它会不停前进, 玩家只能操控蛇的头部朝向(]]></description>
 </item></channel>
 </rss>
