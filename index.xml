@@ -3,9 +3,16 @@
         <title>Siykt的博客</title>
         <link>https://www.antpro.me/</link>
         <description>Siykt的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Wed, 11 May 2022 23:08:39 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh</language><lastBuildDate>Tue, 24 May 2022 09:42:52 &#43;0800</lastBuildDate>
             <atom:link href="https://www.antpro.me/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>排序算法之插入排序</title>
+    <link>https://www.antpro.me/posts/insertion-sort/</link>
+    <pubDate>Tue, 24 May 2022 09:42:52 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>https://www.antpro.me/posts/insertion-sort/</guid>
+    <description><![CDATA[排序算法之插入排序 了解排序法是学习算法的必经之路. 所谓排序法, 就是将一堆没有排序过的数字由小到大 (或大到小) 排列好的算法 大致了解何谓排序法后]]></description>
+</item><item>
     <title>Linked List</title>
     <link>https://www.antpro.me/posts/linked-list/</link>
     <pubDate>Wed, 11 May 2022 23:08:39 &#43;0800</pubDate>
@@ -68,12 +75,5 @@
     <author>Author</author>
     <guid>https://www.antpro.me/posts/%E8%AF%8D%E6%B3%95%E7%8E%AF%E5%A2%83/</guid>
     <description><![CDATA[简介 Lexical Environments 是一种规范类型，用于根据 ECMAScript 代码的词法嵌套结构定义标识符与特定变量和函数的关联。一个词法环境由一个 Environment Records 和一个可能为空的外部词法环境的引]]></description>
-</item><item>
-    <title>闭包</title>
-    <link>https://www.antpro.me/posts/%E9%97%AD%E5%8C%85/</link>
-    <pubDate>Tue, 24 Aug 2021 11:27:09 &#43;0800</pubDate>
-    <author>Author</author>
-    <guid>https://www.antpro.me/posts/%E9%97%AD%E5%8C%85/</guid>
-    <description><![CDATA[JavaScript 的闭包 一个函数和对其周围状态 (lexical environment, 词法环境) 的引用捆绑在一起 (或者说函数被引用包围) , 这样的组合就是闭包 (closure). 也就是说, 闭包让你可以在一个内层函]]></description>
 </item></channel>
 </rss>
